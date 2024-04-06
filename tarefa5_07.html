@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tarefa 5.7</title>
+        <link rel="stylesheet" type="text/css" href="estilo7.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Selecione seus Hobbies</h1>
+            <form>
+            <ul>
+               <h3>Selecione o Hobbies</h3>
+               <li><input type="checkbox" id="Estudar" name="hobby" value="Estudar"> <label for="Ler">Ler</label></li>
+               <li><input type="checkbox" id="Futebol" name="hobby" value="Futebol"> <label for="Futebol">Futebol</label></li>
+               <li><input type="checkbox" id="Programar" name="hobby" value="Programar"> <label for="Programar">Programar</label></li>
+               <li><input type="checkbox" id="Fotografar" name="hobby" value="Fotografar"> <label for="Fotografar">Fotografar</label></li>
+               <li><input type="checkbox" id="videogame" name="hobby" value="videogame"> <label for="videogame">Video-Game</label></li>
+            </ul>
+                <button type="button" class="check-button" onclick="ShowCheck()">Mostrar Hobbies</button>
+                <button type="button" class="check-remove" onclick="RemoverCheck()">Limpar</button>
+            </form>
+
+            <p id="result"></p>
+
+            <script>
+
+                function ShowCheck(){
+                    var checkboxes = document.getElementsByName('hobby')
+                    var hobbiesSelecionados = []
+
+                    for (var i = 0; i < checkboxes.length; i++){
+                        if (checkboxes[i].checked){
+                            hobbiesSelecionados.push(checkboxes[i].value)
+                        }
+                    }
+                    document.getElementById('result').innerHTML = " <span><h3 style='color: #FF6000'>Hobbies Selecionados: </h3> </span>" + hobbiesSelecionados.join(', ');
+                }
+                function RemoverCheck(){
+
+                    var checkboxes = document.getElementsByName('hobby')
+
+                    for(var i = 0; i < checkboxes.length; i++){
+                        checkboxes[i].checked = false;
+                    }
+                    document.getElementById('result').innerHTML = "";
+                }
+
+                
+
+            </script>
+        </div>
+    </body>
+</html>
